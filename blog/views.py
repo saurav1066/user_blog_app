@@ -19,3 +19,7 @@ class BlogPost(CreateView):
     template_name = 'blog_form.html'
     success_url = '/blog'
 
+    def form_valid(self, form):
+        form.instance.author=self.request.user
+        return super().form_valid(form)
+
