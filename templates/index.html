@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+        body,html{
+            width: auto;
+	        height: 100%;
+	        background:grey;
+        }
+
+        body,p {
+	        color: black;
+	        text-align: center;
+	        font: 400 1rem/1.5625rem "Open Sans", sans-serif;
+
+        }
+
+        .header {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 20px 10px;
+        }
+
+        .header a {
+          float: left;
+          color: black;
+          text-align: center;
+          padding: 12px;
+          text-decoration: none;
+          font-size: 18px;
+          line-height: 25px;
+          border-radius: 4px;
+        }
+
+        .header a.logo {
+          font-size: 25px;
+          font-weight: bold;
+        }
+
+        .header a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+
+        .header a.active {
+          background-color: dodgerblue;
+          color: white;
+        }
+
+        .header-right {
+          float: right;
+        }
+
+        a{
+            color:white;
+            font-family: sans-serif;
+            font-size: medium;
+            font-style: bold;
+            text-decoration: none;
+        }
+
+        h1 {
+	        color: white;
+	        font: 700 2.5rem/3rem "Montserrat", sans-serif;
+
+        }
+        .heading{
+            animation: glitch 1s linear infinite;
+        }
+
+
+        @keyframes glitch{
+          2%,64%{
+            transform: translate(2px,0) skew(0deg);
+          }
+          4%,60%{
+            transform: translate(-2px,0) skew(0deg);
+          }
+          62%{
+            transform: translate(0,0) skew(5deg);
+          }
+        }
+        .heading:before,
+        .heading:after{
+          content: attr(title);
+          position: absolute;
+          left: 0;
+        }
+
+        .heading:before{
+          animation: glitchTop 1s linear infinite;
+          clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+          -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+        }
+
+        @keyframes glitchTop{
+          2%,64%{
+            transform: translate(2px,-2px);
+          }
+          4%,60%{
+            transform: translate(-2px,2px);
+          }
+          62%{
+            transform: translate(13px,-1px) skew(-13deg);
+          }
+        }
+
+        .heading:after{
+          animation: glitchBotom 1.5s linear infinite;
+          clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+          -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitchBotom{
+          2%,64%{
+            transform: translate(-2px,0);
+          }
+          4%,60%{
+            transform: translate(-2px,0);
+          }
+          62%{
+            transform: translate(-22px,5px) skew(21deg);
+          }
+        }
+
+        h2{
+            font: sans-serif;
+
+        }
+
+        button{
+         	display: inline-block;
+            padding: 1.1875rem 1.875rem 1.1875rem 1.875rem;
+            border: 0.125rem solid #14bf98;
+            border-radius: 30px;
+            background-color: #14bf98;
+            color: #fff;
+            font: 700 0.75rem/0 "Montserrat", sans-serif;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background-color: transparent;
+            color: #14bf98;
+            text-decoration: none;
+        }
+
+        #index_page{
+            height:100vh;
+            display: flex;
+            background: black;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #blog_page{
+             background: white;
+             border-radius:20px;
+             box-shadow: 7px 7px 50px 0px black;
+             transition: transform .2s;
+             display:flex;
+             flex-direction: column;
+             flex-wrap: wrap;
+             width: 60%;
+             margin: 10px;
+             margin-left: 20%;
+        }
+
+
+
+        #blog_page:hover{
+            transform: scale(0.5)
+        }
+
+
+
+    </style>
+</head>
+<body>
+    {%block content%}
+    <div id = "index_page">
+        <h1 class = "heading" title="Welcome to the Blog">Welcome to the Blog</h1>
+
+        <button>
+            <a class="btn btn-primary" href="/login">See Blog</a>
+        </button>
+    </div>
+    {%endblock%}
+</body>
+</html>

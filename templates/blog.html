@@ -1,0 +1,26 @@
+{%extends 'index.html'%}
+{%block content%}
+    <div class="header">
+        <a href='' class="logo">Logo</a>
+        <div class="header-right">
+            <a href="{% url 'login' %}">Logout</a>
+
+        </div>
+    </div>
+
+    <h1> Welcome {{user.first_name}} </h1>
+        {% for i in obj%}
+        <div id = 'blog_page'>
+            <span>
+                <h2>{{i.title}}</h2>
+                <p id = "post_content">{{i.body}}</p>
+            </span>
+            <span>
+                <p><i>Author:{{i.author.name}}</i></p>
+                <p><i>Last_updated at: {{i.date_posted}}</i></p>
+            </span>
+        </div>
+
+{%endfor%}
+    <a href="{% url 'login' %}">Logout</a>
+{%endblock%}
