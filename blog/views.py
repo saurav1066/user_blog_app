@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView,CreateView
 
 from blog.forms import BlogCreation
@@ -8,13 +9,13 @@ class HomePage(TemplateView):
     template_name = 'index.html'
 
 
-class BlogPage(ListView):
+class BlogPage(LoginRequiredMixin, ListView):
     model = Blog
     template_name = 'blog.html'
     context_object_name = 'obj'
 
 
-class BlogPost(CreateView):
+class BlogPost(LoginRequiredMixin, CreateView):
     form_class = BlogCreation
     template_name = 'blog_form.html'
     success_url = '/blog'
