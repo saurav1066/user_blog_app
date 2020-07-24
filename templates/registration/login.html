@@ -3,7 +3,7 @@
 {% block content %}
 <div style="text-align:center"><h2>Login</h2></div>
 <div style="text-align:center">
-  <form method="post" id="form_login">
+  <form id = "login" method="post" id="form_login">
     {% csrf_token %}
     {{ form.as_p }}
     Not Registered? <p><a href="/user/signup">Register here</a></p>
