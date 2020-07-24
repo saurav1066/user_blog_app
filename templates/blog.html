@@ -1,14 +1,15 @@
 {%extends 'index.html'%}
 {%block content%}
     <div class="header">
-        <a href='' class="logo">Logo</a>
+        <a href='' class="logo">MyBlog</a>
         <div class="header-right">
-            <a href="{% url 'login' %}">Logout</a>
+            <a href="{% url 'logout' %}">Logout</a>
 
         </div>
     </div>
 
-    <h1> Welcome {{user.first_name}} </h1>
+    <h1> Welcome {{request.user.email}} </h1>
+        <a href="create_blog">Create new Blog</a>
         {% for i in obj%}
         <div id = 'blog_page'>
             <span>
@@ -16,11 +17,10 @@
                 <p id = "post_content">{{i.body}}</p>
             </span>
             <span>
-                <p><i>Author:{{i.author.name}}</i></p>
+                <p><i>Author:{{i.author.email}}</i></p>
                 <p><i>Last_updated at: {{i.date_posted}}</i></p>
             </span>
         </div>
 
 {%endfor%}
-    <a href="{% url 'login' %}">Logout</a>
 {%endblock%}

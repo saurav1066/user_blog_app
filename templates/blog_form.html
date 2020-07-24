@@ -1,0 +1,8 @@
+
+{%block blog_form%}
+<form method="post" id="form_block">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Post</button>
+</form>
+{% endblock %}

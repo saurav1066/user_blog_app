@@ -1,15 +1,6 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView, ListView,CreateView
 
-
-
-
-# class home_page(request):
-#     context = {
-#         'name': 'Saurav Adhikari'
-#     }
-#     return render(request, 'index.html', context)
-from django.views.generic import TemplateView, ListView
-
+from blog.forms import BlogCreation
 from blog.models import Blog
 
 
@@ -21,9 +12,10 @@ class BlogPage(ListView):
     model = Blog
     template_name = 'blog.html'
     context_object_name = 'obj'
-# def blog_page(request):
-#     obj = Blog.objects.all()
-#     context = {
-#         'object' : obj
-#     }
-#     return render(request, 'blog.html', context)
+
+
+class BlogPost(CreateView):
+    form_class = BlogCreation
+    template_name = 'blog_form.html'
+    success_url = '/blog'
+
